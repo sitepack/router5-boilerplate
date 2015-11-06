@@ -1,0 +1,41 @@
+{
+  "name": "sitepack-es5-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node-dev server/dev-server.js",
+    "clean": "rimraf dist",
+    "webpack": "webpack --config webpack.config.prod.js",
+    "webpackCss": "webpack --config webpack.config.prod.css.js",
+    "prerender": "node script/prerender.js",
+    "deleteUseless": "node script/deleteUseless.js",
+    "build": "npm run clean && npm run webpack && npm run prerender && npm run webpackCss && npm run deleteUseless",
+    "start": "node server/static-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitepack/es5-boilerplate.git"
+  },
+  "author": "Jas Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sitepack/es5-boilerplate/issues"
+  },
+  "devDependencies": {
+    "bundle-loader": "^0.5.4",
+    "css-loader": "^0.21.0",
+    "express": "^4.13.3",
+    "extract-text-webpack-plugin": "^0.9.0",
+    "node-dev": "^2.7.1",
+    "proxy-middleware": "^0.15.0",
+    "rimraf": "^2.4.3",
+    "router5": "^1.0.0",
+    "router5-history": "^1.0.0",
+    "sitepack": "^0.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1"
+  }
+}
