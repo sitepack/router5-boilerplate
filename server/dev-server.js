@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var proxy = require('proxy-middleware');
 var url = require('url');
-var config = require(path.join(process.cwd(), 'webpack.config.dev.js'));
+var config = require(path.join(process.cwd(), 'webpack', 'config.dev.js'));
 var routes = require(path.join(process.cwd(), 'config', 'route.js'));
 var renderHtml = require(path.join(process.cwd(), 'base', 'html.js'));
 

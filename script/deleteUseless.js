@@ -5,10 +5,14 @@ var assetsPath = path.join(process.cwd(), 'dist', 'assets');
 
 var routes = require('../config/route.js');
 
-routes.forEach(function(route) {
-  var fileName = path.join(assetsPath, `${route.name}.js`);
+function unlink(fileName) {
   fs.unlink(fileName, function (err) {
     if (err) throw err;
     console.log(`[Delete] ${fileName}`);
-  })
+  });
+}
+
+routes.forEach(function(route) {
+  unlink(path.join(assetsPath, `${route.name}.js`));
+  unlink(path.join(assetsPath, `${route.name}.js.map`));
 });

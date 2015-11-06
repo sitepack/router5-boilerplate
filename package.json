@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node-dev server/dev-server.js",
     "clean": "rimraf dist",
-    "webpack": "webpack --config webpack.config.prod.js",
-    "webpackCss": "webpack --config webpack.config.prod.css.js",
+    "dev": "node-dev server/dev-server.js",
+    "webpackCss": "webpack --config ./webpack/config.prod.exCss.js",
+    "webpack": "webpack --config ./webpack/config.prod.final.js",
     "prerender": "node script/prerender.js",
     "deleteUseless": "node script/deleteUseless.js",
-    "build": "npm run clean && npm run webpack && npm run prerender && npm run webpackCss && npm run deleteUseless",
+    "build": "npm run clean && npm run webpackCss && npm run prerender && npm run webpack && npm run deleteUseless",
     "start": "node server/static-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
