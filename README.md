@@ -37,7 +37,9 @@ Edit `./base/layout.js`.
 #### Add a new page
 1. Add routes by editing `./config/route.js`.
 2. Create `./pages/{route.name}/index.js`.
-3. Each `./pages/{route.name}/index.js` should export `render` function that returns `html string` when doing pre-render (`null` to skip pre-render), returns `html string` or `DOM element` when running in browser (`null` to skip render).
+3. Each `./pages/{route.name}/index.js` should export `render` function that
+  - Returns `html string` when doing pre-render (`null` to skip pre-render)
+  - Returns `html string` or `DOM element` when running in browser (`null` to skip render).
 4. `canActivate` and `canDeactivate` are optional.
 
 #### Get router logs (for debugging)
