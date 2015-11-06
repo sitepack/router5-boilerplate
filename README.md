@@ -1,4 +1,5 @@
 # Sitepack ES5 boilerplate
+Minimal config.
 
 ## Setup
 ```
