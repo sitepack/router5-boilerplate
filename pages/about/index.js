@@ -5,6 +5,10 @@ var html = '<h1>About</h1>'
 + '<a href="/">Home</a>';
 
 var page = {
+  canActivate: (toRouteState, fromRouteState, done) => {
+    // http://router5.github.io/docs/preventing-navigation.html
+    return true;
+  },
   render: function(toRouteState, fromRouteState, linkIntercepter) {
     // pre-render, just return html string.
     if (typeof document === 'undefined') {
@@ -24,6 +28,10 @@ var page = {
       linkIntercepter.interceptAll(dom);
       return dom;
     }
+  },
+  canDeactivate: (toRoute, fromRoute, done) => {
+    // http://router5.github.io/docs/preventing-navigation.html
+    return true;
   }
 };
 
