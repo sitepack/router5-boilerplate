@@ -55,7 +55,7 @@ Edit `./webpack/style-loaders.js`.
 Edit `./webpack/config.base.js`.
 
 
-## What happen during build time?
+## What happened during build time?
 1. Delete `./dist`.
 2. Build bundles, extract styles to .css file, this also makes code able to run in node context.
 3. Render pages to `{page}.html` by calling `{page}.render()`.
