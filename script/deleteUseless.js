@@ -1,6 +1,19 @@
 var path = require('path');
 var fs = require('fs');
 
+function fileExist(file) {
+  var exist = true;
+  try {
+    fs.statSync(file);
+  } catch(e) {
+    if (e.errno === -2) {
+      exist = false;
+    }
+  }
+
+  return exist;
+}
+
 var assetsPath = path.join(process.cwd(), 'dist', 'assets');
 
 var routes = require('../config/route.js');
@@ -15,4 +28,9 @@ function unlink(fileName) {
 routes.forEach(function(route) {
   unlink(path.join(assetsPath, `${route.name}.js`));
   unlink(path.join(assetsPath, `${route.name}.js.map`));
+
+  var mainCss = path.join(assetsPath, 'main.css');
+  if (fileExist(mainCss)) {
+    unlink(mainCss);
+  }
 });

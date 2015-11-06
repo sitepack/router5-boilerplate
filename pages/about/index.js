@@ -5,7 +5,7 @@ var html = '<h1>About</h1>'
 + '<a href="/">Home</a>';
 
 var page = {
-  canActivate: (toRouteState, fromRouteState, done) => {
+  canActivate: function(toRouteState, fromRouteState, done) {
     // http://router5.github.io/docs/preventing-navigation.html
     return true;
   },
@@ -29,7 +29,7 @@ var page = {
       return dom;
     }
   },
-  canDeactivate: (toRoute, fromRoute, done) => {
+  canDeactivate: function(toRoute, fromRoute, done) {
     // http://router5.github.io/docs/preventing-navigation.html
     return true;
   }

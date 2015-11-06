@@ -38,7 +38,7 @@ Edit `./base/layout.js`.
 1. Add routes by editing `./config/route.js`.
 2. Create `./pages/{route.name}/index.js`.
 3. Each `./pages/{route.name}/index.js` should export `render` function that
-  - Returns `html string` when doing pre-render (`null` to skip pre-render)
+  - Returns `html string` when doing pre-render (`null` to skip pre-render).
   - Returns `html string` or `DOM element` when running in browser (`null` to skip render).
 4. `canActivate` and `canDeactivate` are optional.
 
@@ -58,6 +58,6 @@ Edit `./webpack/config.base.js`.
 ## What happen during build time?
 1. Delete `./dist`.
 2. Build bundles, extract styles to .css file, this also makes code able to run in node context.
-3. Render pages to .html files by calling `{page}.render()`.
+3. Render pages to `{page}.html` by calling `{page}.render()`.
 4. Build bundles again without extracting styles (layz load style will work).
 5. Clean up, delete unused files.
