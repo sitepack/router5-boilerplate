@@ -1,4 +1,4 @@
-require ('./layout.css');
+require('./layout.css');
 
 function render(content) {
   return '<header>'
