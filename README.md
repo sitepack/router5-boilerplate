@@ -20,7 +20,7 @@ npm run build
 ```
 
 ## Run production server
-Run a static server on `./dist` and responses `./dist/404.html` when request url not found.
+Run a static server on `./dist` and serves `./dist/404.html` when request url not found.
 ```
 npm start
 open http://localhost:8080
