@@ -57,7 +57,7 @@ Edit `./webpack/config.base.js`.
 
 ## What happened during build time?
 1. Delete `./dist`.
-2. Build bundles, extract styles to .css file, this also makes code able to run in node context.
+2. Build bundles, extract styles to `{page}.css`, this also makes code able to run in node context.
 3. Render pages to `{page}.html` by calling `{page}.render()`.
-4. Build bundles again without extracting styles (layz load style will work).
+4. Build bundles again without extracting styles (makes lazy loading style work), optimize for production.
 5. Clean up, delete unused files.
