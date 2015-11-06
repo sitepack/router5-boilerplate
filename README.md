@@ -1,4 +1,4 @@
-# Sitepack es5 boilerplate
+# Sitepack ES5 boilerplate
 
 ## Setup
 ```
