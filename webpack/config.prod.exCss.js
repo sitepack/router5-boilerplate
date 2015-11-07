@@ -13,7 +13,7 @@ var plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify('production')
   }),
-  new ExtractTextPlugin('[name].css')
+  new ExtractTextPlugin('[name].css', { allChunks: true })
 ];
 
 config.plugins = config.plugins.concat(plugins);
