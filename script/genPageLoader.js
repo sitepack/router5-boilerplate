@@ -19,7 +19,7 @@ module.exports = pageLoader;`;
 
 function genLazy() {
   var loaders = routes.map(function(route) {
-    return `  ${route.name}: require('bundle?lazy!../pages/${route.name}')`;
+    return `  ${route.name}: require('bundle?lazy&name=${route.name}-chunk!../pages/${route.name}')`;
   });
 
   write(loaders);

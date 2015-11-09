@@ -7,7 +7,8 @@ var utils = require('./utils.js');
 // build ./config/pageLoader.js
 require('../script/genPageLoader.js').genBundle();
 
-config.output.libraryTarget = 'umd';
+config.entry = utils.getEntries('./pages/');
+config.output.libraryTarget = 'commonjs2';
 
 var plugins = [
   new webpack.DefinePlugin({

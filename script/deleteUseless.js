@@ -25,9 +25,10 @@ function unlink(fileName) {
   });
 }
 
+unlink(path.join(assetsPath, 'layout.js'));
+
 routes.forEach(function(route) {
   unlink(path.join(assetsPath, `${route.name}.js`));
-  unlink(path.join(assetsPath, `${route.name}.js.map`));
 
   var mainCss = path.join(assetsPath, 'main.css');
   if (fileExist(mainCss)) {

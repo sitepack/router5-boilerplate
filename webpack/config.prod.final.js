@@ -6,6 +6,10 @@ var utils = require('./utils.js');
 // build ./config/pageLoader.js
 require('../script/genPageLoader.js').genLazy();
 
+config.entry = {
+  main: [ './index.js' ]
+};
+
 config.devtool = 'source-map';
 
 var plugins = [

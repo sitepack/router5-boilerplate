@@ -10,7 +10,7 @@
     "webpack": "webpack --config ./webpack/config.prod.final.js",
     "prerender": "node script/prerender.js",
     "deleteUseless": "node script/deleteUseless.js",
-    "build": "npm run clean && npm run webpackCss && npm run prerender && npm run webpack && npm run deleteUseless",
+    "build": "npm run clean && npm run webpackCss && npm run prerender && npm run deleteUseless && npm run webpack",
     "start": "node server/static-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

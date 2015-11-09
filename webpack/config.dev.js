@@ -5,6 +5,11 @@ var utils = require('./utils.js');
 // build ./config/pageLoader.js
 require('../script/genPageLoader.js').genLazy();
 
+config.entry = {
+  main: [ './index.js' ],
+  layout: [ './base/layout.js' ]
+};
+
 config.devtool = 'inline-source-map';
 
 config.entry.main.push('webpack-dev-server/client?http://localhost:8081');

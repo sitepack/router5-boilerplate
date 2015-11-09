@@ -8,11 +8,11 @@ var distPath = path.join(process.cwd(), dist);
 
 app.use(express.static(distPath));
 
-app.get('/*', function (req, res) {
-  if (req.accepts('html')) {
+app.get('/*', function (req, res, next) {
+  if (req.accepts('html') && req.originalUrl !== '/favicon.ico') {
     res.sendFile(path.join(distPath, '404.html'));
   } else {
-    res.status(404);
+    next();
   }
 });
 
