@@ -27,11 +27,11 @@ function unlink(fileName) {
 
 unlink(path.join(assetsPath, 'layout.js'));
 
+var mainCss = path.join(assetsPath, 'main.css');
+if (fileExist(mainCss)) {
+  unlink(mainCss);
+}
+
 routes.forEach(function(route) {
   unlink(path.join(assetsPath, `${route.name}.js`));
-
-  var mainCss = path.join(assetsPath, 'main.css');
-  if (fileExist(mainCss)) {
-    unlink(mainCss);
-  }
 });
