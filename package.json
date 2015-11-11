@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node-dev node_modules/@sitepack/dev-server",
     "extractCss": "webpack --config ./webpack/config.prod.exCss.js",
-    "prerender": "node node_modules/@sitepack/sitepack/task/prerender.js",
+    "prerender": "node node_modules/@sitepack/prerender",
     "webpack": "webpack --config ./webpack/config.prod.final.js",
     "prebuild": "rimraf dist",
     "build": "npm run extractCss && npm run prerender && npm run webpack",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@sitepack/dev-server": "^0.1.1",
     "@sitepack/helper": "^0.1.1",
+    "@sitepack/prerender": "^0.1.0",
     "@sitepack/static-server": "^0.1.1",
     "bundle-loader": "^0.5.4",
     "css-loader": "^0.21.0",
