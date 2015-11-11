@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist",
     "dev": "node-dev node_modules/@sitepack/dev-server",
-    "extract-css": "webpack --config ./webpack/config.prod.exCss.js",
+    "extractCss": "webpack --config ./webpack/config.prod.exCss.js",
+    "prerender": "node node_modules/@sitepack/sitepack/task/prerender.js",
     "webpack": "webpack --config ./webpack/config.prod.final.js",
-    "prerender": "node script/prerender.js",
-    "deleteUseless": "node script/deleteUseless.js",
-    "build": "npm run clean && npm run extract-css && npm run prerender && npm run deleteUseless && npm run webpack",
+    "prebuild": "rimraf dist",
+    "build": "npm run extractCss && npm run prerender && npm run webpack",
+    "postbuild": "rimraf ./dist/assets/layout.js ./dist/assets/main.css ./routeModules.js",
     "start": "node node_modules/@sitepack/static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@sitepack/dev-server": "^0.1.0",
+    "@sitepack/helper": "^0.1.1",
     "@sitepack/static-server": "^0.1.0",
     "bundle-loader": "^0.5.4",
     "css-loader": "^0.21.0",

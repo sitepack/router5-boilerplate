@@ -1,10 +1,11 @@
 var webpack = require('webpack');
 var config = require('./config.base.js');
 var styleLoaders = require('./style-loaders.js');
-var utils = require('./utils.js');
+var webpackHelper = require('@sitepack/helper/webpack.js');
+var routeModulesHelper = require('@sitepack/helper/routeModules.js');
 
-// build ./config/routeLoader.js
-require('../script/genRouteLoader.js').genLazy();
+// generate ./config/routeLoader.js
+routeModulesHelper.gen({lazy: true});
 
 config.entry = {
   main: [ './index.js' ]
@@ -27,8 +28,8 @@ var plugins = [
 
 config.plugins = config.plugins.concat(plugins);
 
-var extractStyleLoaders = utils.inlineStyle(styleLoaders);
-config.module.loaders = config.module.loaders.concat(extractStyleLoaders);
+var bundleStyleLoaders = webpackHelper.bundleStyle(styleLoaders);
+config.module.loaders = (config.module.loaders || []).concat(bundleStyleLoaders);
 
 
 module.exports = config;

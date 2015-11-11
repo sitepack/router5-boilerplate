@@ -1,9 +1,10 @@
 var config = require('./config.base.js');
 var styleLoaders = require('./style-loaders.js');
-var utils = require('./utils.js');
+var webpackHelper = require('@sitepack/helper/webpack.js');
+var routeModulesHelper = require('@sitepack/helper/routeModules.js');
 
-// build ./routeLoader.js
-require('../script/genRouteLoader.js').genLazy();
+// generate ./routeLoader.js
+routeModulesHelper.gen({lazy: true});
 
 config.entry = {
   main: [ './index.js' ],
@@ -15,8 +16,7 @@ config.devtool = 'inline-source-map';
 config.entry.main.push('webpack-dev-server/client?http://localhost:8081');
 config.output.publicPath = 'http://localhost:8081/assets/';
 
-var inlineStyleLoaders = utils.inlineStyle(styleLoaders);
-config.module.loaders = config.module.loaders || [];
-config.module.loaders = config.module.loaders.concat(inlineStyleLoaders);
+var bundleStyleLoaders = webpackHelper.bundleStyle(styleLoaders);
+config.module.loaders = (config.module.loaders || []).concat(bundleStyleLoaders);
 
 module.exports = config;

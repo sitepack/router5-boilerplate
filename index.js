@@ -2,7 +2,7 @@ var Router5 = require('router5').Router5;
 var historyPlugin = require('router5-history');
 
 var routes = require('./config/route.js');
-var routeLaoder = require('./routeLoader.js');
+var routeModules = require('./routeModules.js');
 var bootstrap = require('sitepack').bootstrap;
 var changeTitle = require('sitepack').changeTitle;
 
@@ -27,7 +27,7 @@ function getContentNode() {
 }
 
 // sitepack bootstrap
-var sitepack = bootstrap(router, routeLaoder, getContentNode, navigateCb);
+var sitepack = bootstrap(router, routeModules, getContentNode, navigateCb);
 var linkIntercepter = sitepack.linkIntercepter;
 var loadPageMiddleware = sitepack.loadPageMiddleware;
 

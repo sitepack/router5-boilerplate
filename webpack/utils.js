@@ -32,7 +32,7 @@ function check(loader) {
   }
 }
 
-function inlineStyle(loaders) {
+function bundleStyle(loaders) {
   return loaders.map(function(loader) {
     check(loader.loader);
     return { test: loader.test, loader: 'style-loader!' + loader.loader };
@@ -51,6 +51,6 @@ function extractStyle(loaders, ExtractTextPlugin) {
 
 module.exports = {
   getEntries: getEntries,
-  inlineStyle: inlineStyle,
+  bundleStyle: bundleStyle,
   extractStyle: extractStyle
 };
