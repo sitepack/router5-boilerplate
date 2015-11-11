@@ -30,13 +30,11 @@
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.9.0",
     "node-dev": "^2.7.1",
-    "proxy-middleware": "^0.15.0",
     "rimraf": "^2.4.3",
     "router5": "^1.0.0",
     "router5-history": "^1.0.0",
     "sitepack": "^0.1.2",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.1"
+    "webpack": "^1.12.2"
   }
 }
