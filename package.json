@@ -11,7 +11,7 @@
     "prerender": "node script/prerender.js",
     "deleteUseless": "node script/deleteUseless.js",
     "build": "npm run clean && npm run webpackCss && npm run prerender && npm run deleteUseless && npm run webpack",
-    "start": "node server/static-server.js",
+    "start": "node node_modules/@sitepack/static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@sitepack/dev-server": "^0.1.0",
+    "@sitepack/static-server": "^0.1.0",
     "bundle-loader": "^0.5.4",
     "css-loader": "^0.21.0",
     "express": "^4.13.3",
