@@ -2,8 +2,8 @@ var config = require('./config.base.js');
 var styleLoaders = require('./style-loaders.js');
 var utils = require('./utils.js');
 
-// build ./config/pageLoader.js
-require('../script/genPageLoader.js').genLazy();
+// build ./routeLoader.js
+require('../script/genRouteLoader.js').genLazy();
 
 config.entry = {
   main: [ './index.js' ],

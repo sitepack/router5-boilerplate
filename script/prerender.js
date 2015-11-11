@@ -6,8 +6,7 @@ var assets = 'assets';
 var distPath = path.join(process.cwd(), dist);
 var assetsPath = path.join(distPath, assets);
 
-var configPath = path.join(process.cwd(), 'config');
-var routes = require(path.join(configPath, 'route.js'));
+var routes = require(path.join(process.cwd(), 'config', 'route.js'));
 var renderHtml = require(path.join(process.cwd(), 'base', 'html.js'));
 var renderLayout = require(path.join(assetsPath, 'layout.js'));
 

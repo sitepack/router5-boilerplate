@@ -1,25 +1,22 @@
 var path = require('path');
 var fs = require('fs');
-var configPath = path.join(process.cwd(), 'config');
-var routes = require(path.join(configPath, 'route.js'));
+
+var routes = require(path.join(process.cwd(), 'config', 'route.js'));
 
 function write(loaders) {
   var result = `'use strict';
-
-var pageLoader = {
+module.exports =  {
 ${loaders.join(',\n')}
-}
+};`;
 
-module.exports = pageLoader;`;
-
-  var fileName = path.join(configPath, 'pageLoader.js');
+  var fileName = path.join(process.cwd(), 'routeLoader.js');
   fs.writeFileSync(fileName, result);
   console.log(`[Done] ${fileName}`);
 }
 
 function genLazy() {
   var loaders = routes.map(function(route) {
-    return `  ${route.name}: require('bundle?lazy&name=${route.name}-chunk!../pages/${route.name}')`;
+    return `${route.name}: require('bundle?lazy&name=${route.name}!${route.module}')`;
   });
 
   write(loaders);
@@ -27,7 +24,7 @@ function genLazy() {
 
 function genBundle() {
   var loaders = routes.map(function(route) {
-    return `  ${route.name}: require('../pages/${route.name}')`;
+    return `${route.name}: require('${route.module}')`;
   });
 
   write(loaders);

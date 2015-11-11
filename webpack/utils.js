@@ -1,12 +1,14 @@
 'use strict';
 
-function getEntries(pagesDir) {
-  var routes = require('../config/route.js');
+var path = require('path');
+
+function getEntries() {
+  var routes = require(path.join(process.cwd(), 'config','route.js'));
 
   var entries = {};
 
   routes.forEach(function(route) {
-    entries[route.name] = [pagesDir + route.name];
+    entries[route.name] = [route.module];
   });
 
   if (entries.main) {

@@ -4,20 +4,14 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var styleLoaders = require('./style-loaders.js');
 var utils = require('./utils.js');
 
-// build ./config/pageLoader.js
-require('../script/genPageLoader.js').genBundle();
+// build ./config/routeLoader.js
+require('../script/genRouteLoader.js').genBundle();
 
-config.entry = utils.getEntries('./pages/');
+config.entry = utils.getEntries();
 config.output.libraryTarget = 'commonjs2';
-
-var plugins = [
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify('production')
-  }),
+config.plugins = config.plugins.concat([
   new ExtractTextPlugin('[name].css', { allChunks: true })
-];
-
-config.plugins = config.plugins.concat(plugins);
+]);
 
 var extractStyleLoaders = utils.extractStyle(styleLoaders, ExtractTextPlugin);
 config.module.loaders = config.module.loaders.concat(extractStyleLoaders);

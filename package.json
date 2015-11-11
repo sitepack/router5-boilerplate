@@ -6,11 +6,11 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "node-dev node_modules/@sitepack/dev-server",
-    "webpackCss": "webpack --config ./webpack/config.prod.exCss.js",
+    "extract-css": "webpack --config ./webpack/config.prod.exCss.js",
     "webpack": "webpack --config ./webpack/config.prod.final.js",
     "prerender": "node script/prerender.js",
     "deleteUseless": "node script/deleteUseless.js",
-    "build": "npm run clean && npm run webpackCss && npm run prerender && npm run deleteUseless && npm run webpack",
+    "build": "npm run clean && npm run extract-css && npm run prerender && npm run deleteUseless && npm run webpack",
     "start": "node node_modules/@sitepack/static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

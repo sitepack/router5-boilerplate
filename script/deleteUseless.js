@@ -16,7 +16,7 @@ function fileExist(file) {
 
 var assetsPath = path.join(process.cwd(), 'dist', 'assets');
 
-var routes = require('../config/route.js');
+var routes = require(path.join(process.cwd(), 'config','route.js'));
 
 function unlink(fileName) {
   fs.unlink(fileName, function (err) {
@@ -26,6 +26,7 @@ function unlink(fileName) {
 }
 
 unlink(path.join(assetsPath, 'layout.js'));
+unlink('./routeLoader.js');
 
 var mainCss = path.join(assetsPath, 'main.css');
 if (fileExist(mainCss)) {
