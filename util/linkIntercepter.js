@@ -42,8 +42,6 @@ function onclick(e) {
 
 
   var toRouteState = window.router.matchUrl(el.href);
-  console.log(toRouteState)
-  console.log(__PRODUCTION__)
   if (!toRouteState) {
     if (!__PRODUCTION__) {
       // filter out links like 'download.doc' or 'cat.jpg'
