@@ -2,46 +2,39 @@ var Router5 = require('router5').Router5;
 var historyPlugin = require('router5-history');
 
 var routes = require('./config/route.js');
-var routeModules = require('./routeModules.js');
-var bootstrap = require('sitepack').bootstrap;
-var changeTitle = require('sitepack').changeTitle;
+var loadPageMiddleware = require('./util/loadPageMiddleware.js');
+var updateTitleMiddleware = require('./util/updateTitleMiddleware.js');
+var contentNode = require('./util/contentNode.js');
+var handle404 = require('./util/handle404.js');
+
+require('./util/linkIntercepter.js');
 
 var router = new Router5(routes, {trailingSlash: true});
+window.router = router;
 
-// change title when user click backward button on browsers.
-window.addEventListener('popstate', function(e) {
-  changeTitle(e.state, routes);
-});
-
-// this function will be called when navigation finished (success or failed).
+// this function will be called when navigation finished (successful or failed).
 function navigateCb(err, state) {
-  if (!err) {
-    // change title after navigation.
-    changeTitle(state, routes);
+  if (err) {
+    console.warn(err);
   }
 }
 
-// get content node from layout.
-function getContentNode() {
-  return document.getElementById('main');
+if (navigateCb) {
+  // make every navigation call navigateCb
+  var navigate = router.navigate.bind(router);
+  router.navigate = function(routeName, routeParams, opts) {
+    navigate(routeName, routeParams, opts, navigateCb);
+  }
 }
-
-// sitepack bootstrap
-var sitepack = bootstrap(router, routeModules, getContentNode, navigateCb);
-var linkIntercepter = sitepack.linkIntercepter;
-var loadPageMiddleware = sitepack.loadPageMiddleware;
-
-// intercept links on layout
-linkIntercepter.interceptAll(document);
 
 router
   // .usePlugin(Router5.loggerPlugin()) // if you want to get logs from router.
-  .useMiddleware(loadPageMiddleware)
+  .useMiddleware(loadPageMiddleware, updateTitleMiddleware(routes))
   .usePlugin(historyPlugin())
   .start(function (err, state) {
     if (err) {
       if (err.code === 'ROUTE_NOT_FOUND') {
-        getContentNode().innerHTML = '<h1>Oops! Page not found!</h1>';
+        handle404();
       }
     }
   });

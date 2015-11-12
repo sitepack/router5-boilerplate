@@ -5,12 +5,14 @@ var styleLoaders = require('./style-loaders.js');
 var webpackHelper = require('@sitepack/helper/webpack.js');
 var routeModulesHelper = require('@sitepack/helper/routeModules.js');
 
-// generate ./config/routeLoader.js
-routeModulesHelper.gen();
-
 config.entry = webpackHelper.getAllModuleEntries();
+
 config.output.libraryTarget = 'commonjs2';
 config.plugins = config.plugins.concat([
+  new webpack.DefinePlugin({
+    '__PRODUCTION__': true,
+    '__PRERENDER__': true
+  }),
   new ExtractTextPlugin('[name].css', { allChunks: true })
 ]);
 

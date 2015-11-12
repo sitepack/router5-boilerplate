@@ -1,16 +1,17 @@
 {
   "name": "sitepack-es5-boilerplate",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "node-dev node_modules/@sitepack/dev-server",
+    "dev:node": "node node_modules/@sitepack/dev-server",
     "extractCss": "webpack --config ./webpack/config.prod.exCss.js",
     "prerender": "node node_modules/@sitepack/prerender",
     "webpack": "webpack --config ./webpack/config.prod.final.js",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist ./routeModules.js",
     "build": "npm run extractCss && npm run prerender && npm run webpack",
-    "postbuild": "rimraf ./dist/assets/layout.js ./dist/assets/main.css ./routeModules.js",
+    "postbuild": "rimraf ./dist/assets/layout.js ./routeModules.js",
     "start": "node node_modules/@sitepack/static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,8 +26,9 @@
   },
   "devDependencies": {
     "@sitepack/dev-server": "^0.1.1",
-    "@sitepack/helper": "^0.1.1",
+    "@sitepack/helper": "^0.3.0",
     "@sitepack/prerender": "^0.1.0",
+    "@sitepack/route-loader": "^0.1.2",
     "@sitepack/static-server": "^0.1.1",
     "bundle-loader": "^0.5.4",
     "css-loader": "^0.21.0",
@@ -35,7 +37,6 @@
     "rimraf": "^2.4.3",
     "router5": "^1.0.0",
     "router5-history": "^1.0.0",
-    "sitepack": "^0.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.2"
   }

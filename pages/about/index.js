@@ -1,36 +1,39 @@
-var isSameRoute = require('sitepack').isSameRoute;
+'use strict';
+
+var contentNode = require('../../util/contentNode.js');
 
 var html = '<h1>About</h1>'
 + '<div><a href="https://www.google.com" target="_blank">Google</a></div>'
-+ '<a href="/">Home</a>';
++ '<div><a href="/">Home</a></div>'
++ '<div><a href="/typo">Broken link</a></div>'
++ '<button id="hello-btn" type="button">Say hello</button>';
+
+function sayHello() {
+  alert('Hello!');
+}
 
 var page = {
-  canActivate: function(toRouteState, fromRouteState, done) {
-    // http://router5.github.io/docs/preventing-navigation.html
-    return true;
-  },
-  render: function(toRouteState, fromRouteState, linkIntercepter) {
-    // pre-render, just return html string.
-    if (typeof document === 'undefined') {
+  render: function(isSameRoute) {
+    if (__PRERENDER__) {
       return html;
     }
 
-    // This page contains a link to another page,
-    // so we have to intercept this link,
-    // otherwise browsers will load full page.
+    if (!isSameRoute) {
+      var el = document.createElement('div');
+      el.innerHTML = html;
+      el.querySelector('#hello-btn')
+        .addEventListener('click', sayHello);
 
-    // If you want to add event listeners to elements,
-    // do it here.
-
-    if (!isSameRoute(toRouteState, fromRouteState)) {
-      var dom = document.createElement('div');
-      dom.innerHTML = html;
-      linkIntercepter.interceptAll(dom);
-      return dom;
+      contentNode.replace(el);
+    } else {
+      // same route, maybe scroll page to the top?
     }
   },
-  canDeactivate: function(toRoute, fromRoute, done) {
-    // http://router5.github.io/docs/preventing-navigation.html
+  canDeactivate: function() {
+    contentNode.get()
+      .querySelector('#hello-btn')
+      .removeEventListener('click', sayHello);
+
     return true;
   }
 };

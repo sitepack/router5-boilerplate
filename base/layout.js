@@ -1,3 +1,5 @@
+'use strict';
+
 require('./layout.css');
 
 function render(content) {

@@ -1,3 +1,5 @@
+'use strict';
+
 var defaultTitle = 'MySite';
 
 function render(title, content) {

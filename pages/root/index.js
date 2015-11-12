@@ -1,13 +1,16 @@
 require('./style.css');
-
-var isSameRoute = require('sitepack').isSameRoute;
+var contentNode = require('../../util/contentNode.js');
 
 var html = '<h1 class="h1">Home</h1>';
 
 var page = {
-  render: function(toRouteState, fromRouteState) {
-    if (!isSameRoute(toRouteState, fromRouteState)) {
+  render: function(isSameRoute) {
+    if (__PRERENDER__) {
       return html;
+    }
+
+    if (!isSameRoute) {
+      contentNode.replace(html);
     } else {
       // same route, maybe scroll page to the top?
     }
