@@ -3,6 +3,7 @@ var config = require('./config.base.js');
 var styleLoaders = require('./style-loaders.js');
 var webpackHelper = require('@sitepack/helper/webpack.js');
 var routeModulesHelper = require('@sitepack/helper/routeModules.js');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // generate ./config/routeLoader.js
 routeModulesHelper.gen();
@@ -22,10 +23,12 @@ config.plugins = config.plugins.concat([
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({
     compressor: {
-      screw_ie8: true,
-      warnings: false
+      screw_ie8: true
     }
-  })
+  }),
+  new CopyWebpackPlugin([
+    { from: './public', to: '..' }
+  ])
 ]);
 
 var bundleStyleLoaders = webpackHelper.bundleStyle(styleLoaders);

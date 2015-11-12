@@ -1,6 +1,6 @@
 {
   "name": "sitepack-es5-boilerplate",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "@sitepack/route-loader": "^0.1.2",
     "@sitepack/static-server": "^0.1.1",
     "bundle-loader": "^0.5.4",
+    "copy-webpack-plugin": "^0.2.0",
     "css-loader": "^0.21.0",
     "extract-text-webpack-plugin": "^0.9.0",
     "node-dev": "^2.7.1",
