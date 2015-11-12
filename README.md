@@ -55,16 +55,16 @@ Edit `./base/layout.js`.
   - Returns `html string` when doing pre-render (`null` to skip pre-render).
   - Render the page when running in browser.
 
-#### Get router logs (for debugging)
+#### Get router logs
 In `./index.js`, uncomment `router.usePlugin(Router5.loggerPlugin())`.
 
 #### Add [styling loaders](https://webpack.github.io/docs/list-of-loaders.html#styling)/Enable CSS Modules
 Edit `./webpack/style-loaders.js`.
 
-#### Add non styling related loaders such as babel-lodader, jade-loader
+#### Add non styling loaders such as babel-lodader, jade-loader
 Edit `./webpack/config.*.js`.
 
-#### Where ti put `favicon.ico` and font files?
+#### Where to put `favicon.ico` and web font files?
 `./public`.
 
 ## What happened during build time?
