@@ -1,4 +1,4 @@
-# Sitepack boilerplate with router5
+# [Sitepack](https://github.com/sitepack/sitepack) boilerplate with router5
 Use [router5](http://router5.github.io/) as the client side router. Minimal config.
 
 ## Download
