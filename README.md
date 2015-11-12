@@ -1,18 +1,28 @@
-# Sitepack ES5 boilerplate
-Minimal config.
+# Sitepack boilerplate with router5
+Use [router5](http://router5.github.io/) as the client side router. Minimal config.
+
+## Download
+Download from [project releases](https://github.com/sitepack/router5-boilerplate/releases).
 
 ## Setup
 ```
-git clone https://github.com/sitepack/es5-boilerplate.git
-cd es5-boilerplate
+cd router5-boilerplate
 npm install
 ```
 
 ## Run development server
+Use [node-dev](https://github.com/fgnass/node-dev) to execute the server (more reloading capability, gives less accurate error messages).
 ```
 npm run dev
 open http://localhost:8080
 ```
+Use Node.js to execute the server (gives more accurate error messages, less reloading capability).
+```
+npm run dev:node
+open http://localhost:8080
+```
+
+Use `npm run dev` is fine, switch to `npm run dev:node` when you encounter weird error messages.
 
 ## Build
 Build your project into `./dist` directory.
@@ -29,7 +39,10 @@ open http://localhost:8080
 
 ## Guide
 
-#### Add some tags into &lt;head&gt;, change default title
+#### Add script/link tags into &lt;head&gt; or &lt;body&gt;
+Edit `./base/html.js`.
+
+#### Change default title
 Edit `./base/html.js`.
 
 #### Modify layout
@@ -40,25 +53,22 @@ Edit `./base/layout.js`.
 2. Create `./pages/{route.name}/index.js`.
 3. Each `./pages/{route.name}/index.js` should export `render` function that
   - Returns `html string` when doing pre-render (`null` to skip pre-render).
-  - Returns `html string` or `DOM element` when running in browser (`null` to skip render).
-4. `canActivate` and `canDeactivate` are optional.
+  - Render the page when running in browser.
 
 #### Get router logs (for debugging)
 In `./index.js`, uncomment `router.usePlugin(Router5.loggerPlugin())`.
 
-#### Add css preprocessor loaders to support SASS, LESS
+#### Add [styling loaders](https://webpack.github.io/docs/list-of-loaders.html#styling)/Enable CSS Modules
 Edit `./webpack/style-loaders.js`.
 
-#### Enable CSS Modules, add css post processor loader.
-Edit `./webpack/style-loaders.js`.
-
-#### Add non css related loaders such as babel-lodader, jade-loader
-Edit `./webpack/config.base.js`.
+#### Add non styling related loaders such as babel-lodader, jade-loader
+Edit `./webpack/config.*.js`.
 
 
 ## What happened during build time?
 1. Delete `./dist`.
-2. Build bundles, extract styles to `{page}.css`, this also makes code able to run in node context.
+2. Build bundles, extract styles to `{page}.css`, this also makes route modules able to run in the node context.
 3. Render pages to `{page}.html` by calling `{page}.render()`.
-4. Build bundles again without extracting styles (makes lazy loading style work), optimize for production.
-5. Clean up, delete unused files.
+4. Build bundles again without extracting styles, optimize for production.
+5. Copy `./public` to `./dest`.
+6. Clean up.

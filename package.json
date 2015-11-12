@@ -1,7 +1,7 @@
 {
-  "name": "sitepack-es5-boilerplate",
+  "name": "router5-boilerplate",
   "version": "0.2.1",
-  "description": "",
+  "description": "Sitepack boilerplate with router5, minimal config.",
   "main": "index.js",
   "scripts": {
     "dev": "node-dev node_modules/@sitepack/dev-server",
