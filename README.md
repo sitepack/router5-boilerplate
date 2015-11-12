@@ -64,6 +64,8 @@ Edit `./webpack/style-loaders.js`.
 #### Add non styling related loaders such as babel-lodader, jade-loader
 Edit `./webpack/config.*.js`.
 
+#### Where ti put `favicon.ico` and font files?
+`./public`.
 
 ## What happened during build time?
 1. Delete `./dist`.
