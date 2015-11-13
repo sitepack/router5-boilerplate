@@ -3,7 +3,6 @@ var config = require('./config.base.js');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var styleLoaders = require('./style-loaders.js');
 var webpackHelper = require('@sitepack/helper/webpack.js');
-var routeModulesHelper = require('@sitepack/helper/routeModules.js');
 
 config.entry = webpackHelper.getAllModuleEntries();
 
