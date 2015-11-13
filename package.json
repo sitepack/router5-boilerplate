@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "node-dev node_modules/@sitepack/dev-server",
     "dev:node": "node node_modules/@sitepack/dev-server",
-    "extractCss": "webpack --config ./webpack/config.prod.exCss.js",
+    "extractCss": "NODE_ENV=production webpack --config ./webpack/config.prod.exCss.js",
     "prerender": "node node_modules/@sitepack/prerender",
-    "webpack": "webpack --config ./webpack/config.prod.final.js",
+    "webpack": "NODE_ENV=production webpack --config ./webpack/config.prod.final.js",
     "prebuild": "rimraf dist ./routeModules.js",
     "build": "npm run extractCss && npm run prerender && npm run webpack",
     "postbuild": "rimraf ./dist/assets/layout.js ./routeModules.js",
