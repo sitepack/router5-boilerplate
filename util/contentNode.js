@@ -13,8 +13,8 @@ function create() {
 }
 
 function replace(htmlOrElement) {
-  const contentNode = get();
-  const el = create();
+  var contentNode = get();
+  var el = create();
 
   if (typeof htmlOrElement === 'string') {
     el.innerHTML = htmlOrElement;
