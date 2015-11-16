@@ -10,9 +10,6 @@ config.entry = {
 
 config.devtool = 'inline-source-map';
 
-config.entry.main.push('webpack-dev-server/client?http://localhost:8081');
-config.output.publicPath = 'http://localhost:8081/assets/';
-
 config.plugins = config.plugins.concat([
   new webpack.DefinePlugin({
     '__PRODUCTION__': false,

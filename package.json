@@ -25,8 +25,8 @@
     "url": "https://github.com/sitepack/es5-boilerplate/issues"
   },
   "devDependencies": {
-    "@sitepack/dev-server": "^0.1.2",
-    "@sitepack/helper": "^0.4.0",
+    "@sitepack/dev-server": "^0.2.0",
+    "@sitepack/helper": "^0.4.1",
     "@sitepack/prerender": "^0.1.0",
     "@sitepack/route-loader": "^0.2.2",
     "@sitepack/static-server": "^0.1.1",
