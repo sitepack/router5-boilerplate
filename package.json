@@ -28,7 +28,7 @@
     "@sitepack/dev-server": "^0.1.2",
     "@sitepack/helper": "^0.4.0",
     "@sitepack/prerender": "^0.1.0",
-    "@sitepack/route-loader": "^0.2.1",
+    "@sitepack/route-loader": "^0.2.2",
     "@sitepack/static-server": "^0.1.1",
     "bundle-loader": "^0.5.4",
     "copy-webpack-plugin": "^0.2.0",
