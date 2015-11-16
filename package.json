@@ -4,14 +4,14 @@
   "description": "Sitepack boilerplate with router5, minimal config.",
   "main": "index.js",
   "scripts": {
-    "dev": "node-dev node_modules/@sitepack/dev-server",
-    "dev:node": "node node_modules/@sitepack/dev-server",
+    "dev": "NODE_ENV=development node-dev node_modules/@sitepack/dev-server",
+    "dev:node": "NODE_ENV=development node node_modules/@sitepack/dev-server",
     "extractCss": "NODE_ENV=production webpack --config ./webpack/config.prod.exCss.js",
     "prerender": "node node_modules/@sitepack/prerender",
     "webpack": "NODE_ENV=production webpack --config ./webpack/config.prod.final.js",
     "prebuild": "rimraf dist ./routeModules.js",
     "build": "npm run extractCss && npm run prerender && npm run webpack",
-    "postbuild": "rimraf ./dist/assets/layout.js ./routeModules.js",
+    "postbuild": "rimraf ./dist/assets/layout.js",
     "start": "NODE_ENV=production node node_modules/@sitepack/static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
