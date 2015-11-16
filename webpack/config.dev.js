@@ -2,10 +2,6 @@ var webpack = require('webpack');
 var config = require('./config.base.js');
 var styleLoaders = require('./style-loaders.js');
 var webpackHelper = require('@sitepack/helper/webpack.js');
-var routeModulesHelper = require('@sitepack/helper/routeModules.js');
-
-// generate ./routeLoader.js
-routeModulesHelper.gen();
 
 config.entry = {
   main: [ './index.js' ],

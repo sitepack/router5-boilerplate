@@ -12,7 +12,7 @@
     "prebuild": "rimraf dist ./routeModules.js",
     "build": "npm run extractCss && npm run prerender && npm run webpack",
     "postbuild": "rimraf ./dist/assets/layout.js ./routeModules.js",
-    "start": "node node_modules/@sitepack/static-server",
+    "start": "NODE_ENV=production node node_modules/@sitepack/static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,9 +26,9 @@
   },
   "devDependencies": {
     "@sitepack/dev-server": "^0.1.2",
-    "@sitepack/helper": "^0.3.0",
+    "@sitepack/helper": "^0.4.0",
     "@sitepack/prerender": "^0.1.0",
-    "@sitepack/route-loader": "^0.1.2",
+    "@sitepack/route-loader": "^0.2.1",
     "@sitepack/static-server": "^0.1.1",
     "bundle-loader": "^0.5.4",
     "copy-webpack-plugin": "^0.2.0",

@@ -2,11 +2,7 @@ var webpack = require('webpack');
 var config = require('./config.base.js');
 var styleLoaders = require('./style-loaders.js');
 var webpackHelper = require('@sitepack/helper/webpack.js');
-var routeModulesHelper = require('@sitepack/helper/routeModules.js');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-
-// generate ./config/routeLoader.js
-routeModulesHelper.gen();
 
 config.entry = {
   main: [ './index.js' ]
