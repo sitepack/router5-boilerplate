@@ -12,6 +12,7 @@ config.devtool = 'inline-source-map';
 
 config.plugins = config.plugins.concat([
   new webpack.DefinePlugin({
+    '__DEV__': true,
     '__PRODUCTION__': false,
     '__PRERENDER__': false
   })

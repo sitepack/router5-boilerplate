@@ -9,6 +9,7 @@ config.entry = webpackHelper.getAllModuleEntries();
 config.output.libraryTarget = 'commonjs2';
 config.plugins = config.plugins.concat([
   new webpack.DefinePlugin({
+    '__DEV__': false,
     '__PRODUCTION__': true,
     '__PRERENDER__': true
   }),

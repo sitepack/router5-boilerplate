@@ -12,6 +12,7 @@ config.devtool = 'source-map';
 
 config.plugins = config.plugins.concat([
   new webpack.DefinePlugin({
+    '__DEV__': false,
     '__PRERENDER__': false,
     '__PRODUCTION__': true,
     'process.env.NODE_ENV': JSON.stringify('production')
