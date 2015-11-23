@@ -25,20 +25,20 @@
     "url": "https://github.com/sitepack/es5-boilerplate/issues"
   },
   "devDependencies": {
-    "@sitepack/dev-server": "^0.2.0",
+    "@sitepack/dev-server": "^0.4.1",
     "@sitepack/helper": "^0.4.1",
-    "@sitepack/prerender": "^0.1.0",
-    "@sitepack/route-loader": "^0.2.2",
+    "@sitepack/prerender": "^0.3.0",
+    "@sitepack/route-loader": "^0.2.3",
     "@sitepack/static-server": "^0.1.1",
     "bundle-loader": "^0.5.4",
     "copy-webpack-plugin": "^0.2.0",
-    "css-loader": "^0.21.0",
+    "css-loader": "^0.23.0",
     "extract-text-webpack-plugin": "^0.9.0",
     "node-dev": "^2.7.1",
-    "rimraf": "^2.4.3",
-    "router5": "^1.0.0",
+    "rimraf": "^2.4.4",
+    "router5": "^1.1.0",
     "router5-history": "^1.0.0",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.2"
+    "webpack": "^1.12.8"
   }
 }
