@@ -4,10 +4,7 @@
 
 'use strict';
 
-module.exports = function(router, handleSameRoute) {
-  if (typeof handleSameRoute !== 'function') {
-    throw new Error('handleSameRoute must be a function.');
-  }
+module.exports = function(router, cb) {
   var clickEvent = document.ontouchstart ? 'touchstart' : 'click';
 
   function which(e) {
@@ -49,14 +46,9 @@ module.exports = function(router, handleSameRoute) {
     if (toRouteState) {
       e.preventDefault();
       var name = toRouteState.name;
-      var state = router.getState();
-      if (state && name === state.name) {
-        handleSameRoute();
-      } else {
-        router.navigate(name, {}, {});
-      }
+      router.navigate(name, {}, {}, cb);
     }
   }
 
   document.addEventListener(clickEvent, onclick, false);
-}
+};

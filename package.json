@@ -1,17 +1,17 @@
 {
   "name": "router5-boilerplate",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Sitepack boilerplate with router5, minimal config.",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development node-dev node_modules/@sitepack/dev-server",
     "dev:node": "NODE_ENV=development node node_modules/@sitepack/dev-server",
-    "extractCss": "NODE_ENV=production webpack --config ./webpack/config.prod.exCss.js",
+    "webpack:prerender": "NODE_ENV=production webpack --config ./webpack/config.prerender.js",
     "prerender": "node node_modules/@sitepack/prerender",
-    "webpack": "NODE_ENV=production webpack --config ./webpack/config.prod.final.js",
-    "prebuild": "rimraf dist ./routeModules.js",
-    "build": "npm run extractCss && npm run prerender && npm run webpack",
-    "postbuild": "rimraf ./dist/assets/layout.js",
+    "webpack:prod": "NODE_ENV=production webpack --config ./webpack/config.prod.js",
+    "prebuild": "rimraf dist",
+    "build": "npm run webpack:prerender && npm run prerender && npm run webpack:prod",
+    "postbuild": "rimraf ./dist/assets/render.js ./dist/assets/prerender.js ./dist/assets/prerender.css  ./dist/.gitkeep",
     "start": "NODE_ENV=production node node_modules/@sitepack/static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,9 +25,9 @@
     "url": "https://github.com/sitepack/es5-boilerplate/issues"
   },
   "devDependencies": {
-    "@sitepack/dev-server": "^0.4.1",
-    "@sitepack/helper": "^0.4.1",
-    "@sitepack/prerender": "^0.3.0",
+    "@sitepack/dev-server": "^0.5.0",
+    "@sitepack/helper": "^0.5.0",
+    "@sitepack/prerender": "^0.4.0",
     "@sitepack/route-loader": "^0.2.3",
     "@sitepack/static-server": "^0.1.1",
     "bundle-loader": "^0.5.4",

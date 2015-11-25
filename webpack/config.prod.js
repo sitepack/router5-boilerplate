@@ -1,3 +1,4 @@
+var path = require('path');
 var webpack = require('webpack');
 var config = require('./config.base.js');
 var styleLoaders = require('./style-loaders.js');
@@ -13,7 +14,6 @@ config.devtool = 'source-map';
 config.plugins = config.plugins.concat([
   new webpack.DefinePlugin({
     '__DEV__': false,
-    '__PRERENDER__': false,
     '__PRODUCTION__': true,
     'process.env.NODE_ENV': JSON.stringify('production')
   }),
@@ -31,5 +31,8 @@ config.plugins = config.plugins.concat([
 var bundleStyleLoaders = webpackHelper.bundleStyle(styleLoaders);
 config.module.loaders = (config.module.loaders || []).concat(bundleStyleLoaders);
 
+config.resolve = config.resolve || {};
+config.resolve.alias = config.resolve.alias || {};
+config.resolve.alias.render = './dist/assets/render.js';
 
 module.exports = config;

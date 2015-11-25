@@ -42,7 +42,7 @@ function render(path, content, cssHrefs, scriptSrcs) {
   ${cssHrefs.map(linkTag).join('')}
 </head>
 <body>
-  ${content}
+  <div id="root">${content}</div>
   ${scriptSrcs.map(scriptTag).join('')}
 </body>
 </html>`;

@@ -1,19 +1,19 @@
 'use strict';
 
 var path = require('path');
-
+var routeComponentPath = path.join(__dirname, '..', 'components', 'route');
 var routes = [
   {
     name: 'root',
     path: '/',
     title: 'Home',
-    module: path.join(__dirname, '..', 'pages', 'root')
+    module: path.join(routeComponentPath, 'Root')
   },
   {
     name: 'about',
-    path: '/about',
+    path: '/about/',
     title: 'About',
-    module: path.join(__dirname, '..', 'pages', 'about')
+    module: path.join(routeComponentPath, 'About')
   }
 ];
 
