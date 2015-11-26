@@ -2,6 +2,8 @@
 
 var Layout = require('../components/Layout');
 
-module.exports = function(RouteComponent) {
-  return Layout.render(RouteComponent);
+module.exports = function() {
+  return function(RouteComponent) {
+    return Layout.render(RouteComponent);
+  }
 };
