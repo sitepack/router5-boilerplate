@@ -2,5 +2,4 @@ node_modules
 .DS_STORE
 dist
 npm-debug.log
-/routeModules.js
 /.idea
