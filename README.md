@@ -46,14 +46,11 @@ Edit `./base/html.js`.
 Edit `./base/html.js`.
 
 #### Modify layout
-Edit `./base/layout.js`.
+Edit `./components/Layout`.
 
-#### Add a new page
+#### Add a new route
 1. Add routes by editing `./config/route.js`.
-2. Create `./pages/{route.name}/index.js`.
-3. Each `./pages/{route.name}/index.js` should export `render` function that
-  - Returns `html string` when doing pre-render (`null` to skip pre-render).
-  - Render the page when running in browser.
+2. Create route module correspond to `route.module` you just added.
 
 #### Get router logs
 In `./index.js`, uncomment `router.usePlugin(Router5.loggerPlugin())`.
@@ -62,15 +59,15 @@ In `./index.js`, uncomment `router.usePlugin(Router5.loggerPlugin())`.
 Edit `./webpack/style-loaders.js`.
 
 #### Add non styling loaders such as babel-lodader, jade-loader
-Edit `./webpack/config.*.js`.
+Edit `./webpack/config.{your choice}.js`.
 
-#### Where to put `favicon.ico` and web font files?
+#### Where to put `favicon.ico` and other resources?
 `./public`.
 
 ## What happened during build time?
 1. Delete `./dist`.
-2. Build bundles, extract styles to `{page}.css`, this also makes route modules able to run in the node context.
-3. Render pages to `{page}.html` by calling `{page}.render()`.
+2. Build bundles, extract styles to `{route.name}.css`, this also makes route modules able to run in the node context.
+3. Render pages to `{route.name}.html` by calling `prerender(routeModule)`.
 4. Build bundles again without extracting styles, optimize for production.
-5. Copy `./public` to `./dest`.
+5. Copy `./public/*` into `./dest`.
 6. Clean up.
