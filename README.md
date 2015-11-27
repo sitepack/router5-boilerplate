@@ -67,7 +67,7 @@ Edit `./webpack/config.{your choice}.js`.
 ## What happened during build time?
 1. Delete `./dist`.
 2. Build bundles, extract styles to `{route.name}.css`, this also makes route modules able to run in the node context.
-3. Render pages to `/dist/{getRoutePath(route)}/{route.name}.html` by calling `prerender(routeModule)`.
+3. Render pages to `./dist/{getRoutePath(route)}/index.html` by calling `prerender(routeModule)`.
 4. Build bundles again without extracting styles, optimize for production.
 5. Copy `./public/*` into `./dest`.
 6. Clean up.
