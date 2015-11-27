@@ -11,7 +11,7 @@ var linkInterceptor = require('./util/linkInterceptor.js');
 
 
 var router = new Router5(routes)
-//.usePlugin(Router5.loggerPlugin()) // if you want to get logs from router.
+  //.usePlugin(Router5.loggerPlugin()) // if you want to get logs from router.
   .useMiddleware(
     loadRouteMiddleware(),
     removeStyleMiddleware,
@@ -20,14 +20,14 @@ var router = new Router5(routes)
   .usePlugin(historyPlugin())
   .usePlugin(updateTitlePlugin(routes))
   .start(function (err) {
-  if (err) {
-    if (err.code === 'ROUTE_NOT_FOUND') {
-      load404(renderRoute);
-    } else {
-      console.error(err);
+    if (err) {
+      if (err.code === 'ROUTE_NOT_FOUND') {
+        load404(renderRoute);
+      } else {
+        console.error(err);
+      }
     }
-  }
-});
+  });
 
 linkInterceptor(router, function(err) {
   if (err) {
