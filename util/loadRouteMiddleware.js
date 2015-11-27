@@ -1,7 +1,6 @@
 'use strict';
 
-var RouteLoader = require('@sitepack/route-loader');
-var routeLoader = new RouteLoader();
+var routeLoader = require('@sitepack/route-loader');
 
 function init() {
   window.routeComponents = [];
