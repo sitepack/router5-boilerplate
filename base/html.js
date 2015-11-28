@@ -33,17 +33,20 @@ function scriptTag(src) {
 }
 
 function render(path, content, cssHrefs, scriptSrcs) {
+  const title = getTitle(path);
+  const cssTags = cssHrefs.map(linkTag).join('');
+  const scriptTags = scriptSrcs.map(scriptTag).join('');
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>${getTitle(path)}</title>
-  ${cssHrefs.map(linkTag).join('')}
+  <title>${title}</title>
+  ${cssTags}
 </head>
 <body>
   <div id="root">${content}</div>
-  ${scriptSrcs.map(scriptTag).join('')}
+  ${scriptTags}
 </body>
 </html>`;
 
