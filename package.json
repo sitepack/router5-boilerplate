@@ -5,15 +5,15 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development PORT=3000 node-dev node_modules/@sitepack/dev-server",
-    "dev:node": "NODE_ENV=development PORT=3000 node node_modules/@sitepack/dev-server",
+    "dev": "NODE_ENV=development PORT=8080 node-dev node_modules/@sitepack/dev-server",
+    "dev:node": "NODE_ENV=development PORT=8080 node node_modules/@sitepack/dev-server",
     "webpack:prerender": "NODE_ENV=production webpack --config ./webpack/config.prerender.js",
     "prerender": "node node_modules/@sitepack/prerender",
     "webpack:prod": "NODE_ENV=production webpack --config ./webpack/config.prod.js",
     "prebuild": "rimraf dist",
     "build": "npm run webpack:prerender && npm run prerender && npm run webpack:prod",
     "postbuild": "rimraf ./dist/assets/render.js ./dist/assets/prerender.js ./dist/assets/prerender.css",
-    "start": "NODE_ENV=production PORT=3000 node node_modules/@sitepack/static-server",
+    "start": "NODE_ENV=production PORT=8080 node node_modules/@sitepack/static-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
