@@ -25,7 +25,11 @@ config.plugins = config.plugins.concat([
   }),
   new CopyWebpackPlugin([
     { from: './public', to: '..' }
-  ])
+  ], {
+    ignore: [
+      '.gitkeep'
+    ]
+  })
 ]);
 
 var bundleStyleLoaders = webpackHelper.bundleStyle(styleLoaders);
