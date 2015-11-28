@@ -5,7 +5,7 @@ var historyPlugin = require('router5-history');
 var loadRouteMiddleware = require('./util/loadRouteMiddleware.js');
 var removeStyleMiddleware = require('./util/removeStyleMiddleware.js');
 var renderMiddleware = require('./util/renderMiddleware.js');
-var updateTitlePlugin = require('./util/updateTitlePlugin.js');
+var updateTitleMiddleware = require('./util/updateTitleMiddleware.js');
 var load404 = require('./util/load404.js');
 var linkInterceptor = require('./util/linkInterceptor.js');
 
@@ -15,10 +15,10 @@ var router = new Router5(routes)
   .useMiddleware(
     loadRouteMiddleware(),
     removeStyleMiddleware,
+    updateTitleMiddleware(routes),
     renderMiddleware(renderRoute)
   )
   .usePlugin(historyPlugin())
-  .usePlugin(updateTitlePlugin(routes))
   .start(function (err) {
     if (err) {
       if (err.code === 'ROUTE_NOT_FOUND') {
