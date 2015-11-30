@@ -1,6 +1,6 @@
 {
   "name": "router5-boilerplate",
-  "version": "0.4.0",
+  "version": "0.5.1",
   "description": "Sitepack boilerplate with router5, minimal config.",
   "private": true,
   "main": "index.js",
