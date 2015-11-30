@@ -6,7 +6,7 @@ module.exports = {
   context: path.resolve(__dirname, '..'),
   output: {
     filename: '[name].js',
-    chunkFilename: '[name].js',
+    chunkFilename: '[name]-[hash].js',
     publicPath: '/assets/',
     path: path.join(__dirname, '../dist/assets')
   },
