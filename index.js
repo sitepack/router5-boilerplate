@@ -7,7 +7,7 @@ var removeStyleMiddleware = require('./util/removeStyleMiddleware.js');
 var renderMiddleware = require('./util/renderMiddleware.js');
 var updateTitleMiddleware = require('./util/updateTitleMiddleware.js');
 var load404 = require('./util/load404.js');
-var linkInterceptor = require('./util/linkInterceptor.js');
+var linkInterceptor = require('router5-link-interceptor');
 
 
 var router = new Router5(routes)
@@ -38,3 +38,5 @@ linkInterceptor(router, function(err) {
     }
   }
 });
+
+window.router = router;
