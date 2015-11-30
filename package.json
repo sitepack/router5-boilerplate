@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@sitepack/dev-server": "^0.5.1",
-    "@sitepack/helper": "^0.5.0",
-    "@sitepack/prerender": "^0.5.0",
+    "@sitepack/helper": "^0.5.1",
+    "@sitepack/prerender": "^0.5.1",
     "@sitepack/remove-link-element": "^1.0.0",
     "@sitepack/route-loader": "^0.3.0",
     "@sitepack/static-server": "^0.1.2",
