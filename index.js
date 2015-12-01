@@ -29,7 +29,7 @@ var router = new Router5(routes)
     }
   });
 
-linkInterceptor(router, function(err) {
+linkInterceptor(router, {}, function(err) {
   if (err) {
     if (err.code === 'SAME_STATES') {
       // same route, maybe scroll page to the top?

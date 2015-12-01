@@ -40,7 +40,7 @@
     "rimraf": "^2.4.4",
     "router5": "^1.1.1",
     "router5-history": "^1.0.0",
-    "router5-link-interceptor": "^1.0.0",
+    "router5-link-interceptor": "^2.0.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9"
   }
