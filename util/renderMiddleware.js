@@ -6,9 +6,18 @@ function init(renderRoute) {
     var curRouteState = this.router.getState();
     if (curRouteState) {
       var curRouteComponent = window.routeComponents[curRouteState.name];
-      if (curRouteComponent && curRouteComponent.componentWillUnmount) {
-        curRouteComponent.componentWillUnmount();
+
+      if (curRouteComponent) {
+        if (curRouteComponent.componentWillUnmount) {
+          curRouteComponent.componentWillUnmount();
+        }
+
+        if (curRouteComponent.canDeactivate) {
+          this.router.deregisterComponent(curRouteState.name);
+        }
       }
+
+
     }
 
     // mount new route component.
